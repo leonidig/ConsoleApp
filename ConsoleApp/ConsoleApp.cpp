@@ -2,46 +2,62 @@
 using namespace std;
 
 
+double multiply(int num1, int num2) {
+    return num1 * num2;
+}
+
+double division(int num1, int num2) {
+    return num1 / num2;
+}
+
+double substraction(int num1, int num2) {
+    return num1 - num2;
+}
+
+double addition(int num1, int num2) {
+    return num1 + num2;
+}
+
 int main() {
-    int x;
-    int y;
-    int option;
+    int operation;
+    double num1, num2;
 
-    cout << "Enter x: ";
-    cin >> x;
+    while (true) {
+        cout << "Enter operation\n1 - multiply\n2 - Division\n3 - Substraction\n4 - Addition\n5 - quit\n> ";
+        cin >> operation;
 
-    cout << "Enter y: ";
-    cin >> y;
+        if (operation == 5) {
+            cout << "Goodbye!" << endl;
+            break;
+        }
 
-    cout << "Enter operation\n1 - addition\n2 - subtracting\n3 - division\n4 - multiplying\n>";
-    cin >> option;
-    
-    switch (option){
+        cout << "Enter x: ";
+        cin >> num1;
+        cout << "Enter y: ";
+        cin >> num2;
 
+        switch (operation) {
         case 1:
-            cout << x << " + " << y << " = " << x + y;
+            cout << "Result: " << multiply(num1, num2) << endl;
             break;
-
         case 2:
-            cout << x << " - " << y << " = " << x - y;
-            break;
-
-        case 3:
-            if (y != 0) {
-                cout << x << " : " << y << " = " << x / y;
+            if (num2 == 0) {
+                cout << "Division by zero error" << endl;
             }
             else {
-                cout << "Error: Division by zero!";
+                cout << "Result: " << division(num1, num2) << endl;
             }
             break;
-
-       case 4:
-            cout << x << " * " << y << " = " << x * y;
+        case 3:
+            cout << "Result: " << substraction(num1, num2) << endl;
             break;
-
-       default:
-            cout << "Enter correct option!";
+        case 4:
+            cout << "Result: " << addition(num1, num2) << endl;
             break;
+        default:
+            cout << "Enter a correct option!" << endl;
+            break;
+        }
     }
 
     return 0;
