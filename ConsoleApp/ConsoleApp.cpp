@@ -1,64 +1,32 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 
-double multiply(int num1, int num2) {
-    return num1 * num2;
-}
-
-double division(int num1, int num2) {
-    return num1 / num2;
-}
-
-double substraction(int num1, int num2) {
-    return num1 - num2;
-}
-
-double addition(int num1, int num2) {
-    return num1 + num2;
-}
 
 int main() {
-    int operation;
-    double num1, num2;
+    srand(time(0));
+    int randomNumber = rand() % 101;
+    cout << randomNumber << "\n";
+    int userNumber = 0;
+    int attempts = 0;
 
-    while (true) {
-        cout << "Enter operation\n1 - multiply\n2 - Division\n3 - Substraction\n4 - Addition\n5 - quit\n> ";
-        cin >> operation;
+    cout << "I guess number from 1 to 100";
+    while (userNumber != randomNumber) {
+        cout << "Enter random number: ";
+        cin >> userNumber;
+        attempts++;
 
-        if (operation == 5) {
-            cout << "Goodbye!" << endl;
-            break;
+        if (userNumber > randomNumber) {
+            cout << "Random number is lower than your" << endl;
+        }else if (userNumber < randomNumber) {
+            cout << "Random number is bigger than your";
         }
-
-        cout << "Enter x: ";
-        cin >> num1;
-        cout << "Enter y: ";
-        cin >> num2;
-
-        switch (operation) {
-        case 1:
-            cout << "Result: " << multiply(num1, num2) << endl;
-            break;
-        case 2:
-            if (num2 == 0) {
-                cout << "Division by zero error" << endl;
-            }
-            else {
-                cout << "Result: " << division(num1, num2) << endl;
-            }
-            break;
-        case 3:
-            cout << "Result: " << substraction(num1, num2) << endl;
-            break;
-        case 4:
-            cout << "Result: " << addition(num1, num2) << endl;
-            break;
-        default:
-            cout << "Enter a correct option!" << endl;
+        else {
+            cout << "U won!\nAttempts = attempts";
             break;
         }
     }
-
     return 0;
 }
