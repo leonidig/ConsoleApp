@@ -8,15 +8,15 @@ int add(int a, int b);
 int main() {
     int num1, num2;
 
-    cout << "¬ведите первое число: ";
+    cout << "Enter x: ";
     cin >> num1;
 
-    cout << "¬ведите второе число: ";
+    cout << "Enter y: ";
     cin >> num2;
 
     int result = add(num1, num2);
 
-    cout << "–езультат сложени€: " << result << endl;
+    cout << "Result: " << result << endl;
 
     return 0;
 }
